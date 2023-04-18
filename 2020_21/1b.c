@@ -51,10 +51,8 @@ int getstdID(int stdCode)
 
     // process 2
     year = stdCode >> 18;
-    stdCode <<= 14;
-    dept = stdCode >> 23;
-    stdCode <<= 9;
-    serial = stdCode >> 23;
+    dept = (stdCode << 14) >> 23;
+    serial = (stdCode << 23) >> 23;
 
     int stdID = year % 100;
     stdID = stdID * 100 + dept;
